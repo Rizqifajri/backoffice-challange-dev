@@ -1,11 +1,9 @@
 'use client';
-import { getProducts } from "@/api/products";
-import { useQuery } from "@tanstack/react-query";
 import { Button, Spin, Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { productsQuery } from "../_hooks/use-products";
-import { deleteProductMutation } from "../_hooks/use-delete-product";
-import { editProductMutation } from "../_hooks/use-edit-product";
+import { useProductsQuery } from "../_hooks/use-products";
+import { useDeleteProductMutation } from "../_hooks/use-delete-product";
+import { useEditProductMutation } from "../_hooks/use-edit-product";
 import { useState } from "react";
 import { EditProductModal } from "./modal-edit-product";
 
@@ -20,9 +18,9 @@ interface Product {
 }
 
 export const ListProduct = () => {
-  const { data, isLoading, isError } = productsQuery();
-  const { mutate: deleteProduct } = deleteProductMutation();
-  const { mutate: editProduct } = editProductMutation();
+  const { data, isLoading, isError } = useProductsQuery();
+  const { mutate: deleteProduct } = useDeleteProductMutation();
+  const { mutate: editProduct } = useEditProductMutation();
   const [openModal, setOpenModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 

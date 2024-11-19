@@ -1,11 +1,10 @@
 'use client';
 import React from "react";
 import { Modal, Form, Input, Button } from "antd";
-import { editProduct } from "@/api/products";
-import { title } from "process";
+import { editProduct, Product } from "@/api/products";
 
 interface EditProductModalProps {
-  product: any;
+  product: Product;
   onSave: (values: any) => void;
   openModal: boolean;
   onClose: () => void;
@@ -25,7 +24,7 @@ export const EditProductModal: React.FC<EditProductModalProps> = ({
     }
   }, [product]);
 
-  const handleFinish = (values: any) => {
+  const handleFinish = (values: Product) => {
     const updatedProduct = {
       ...product,  // Data produk lama
       ...values,   // Data yang diedit dari form

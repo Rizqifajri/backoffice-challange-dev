@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Form, Input, InputNumber, Select, message, Spin } from 'antd';
-import { createProductMutation } from '../_hooks/use-create-product';
-import { getProductCategoriesQuery } from '../_hooks/use-category-product';
+import { useCreateProductMutation } from '../_hooks/use-create-product';
+import { useGetProductCategoriesQuery } from '../_hooks/use-category-product';
 
 const { Option } = Select;
 
 export const FormAddProduct: React.FC = () => {
   const [form] = Form.useForm();
-  const addProduct = createProductMutation();
-  const { data: categories, isLoading, isError } = getProductCategoriesQuery();
+  const addProduct = useCreateProductMutation();
+  const { data: categories, isLoading, isError } = useGetProductCategoriesQuery();
 
   const handleSubmit = (values: any) => {
     addProduct.mutate(values, {

@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-import { DashOutlined, ProductOutlined, UserOutlined } from '@ant-design/icons'; // Hanya menggunakan User dan Product icons
+import { ProductOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import { ListProduct } from '../(authenticated)/dashboard/products/_components/list-product';
-import ProductModal from '../(authenticated)/dashboard/products/_components/modal-add-product';
 import AddProductModal from '../(authenticated)/dashboard/products/_components/modal-add-product';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -12,7 +11,7 @@ const items = [
   {
     key: '1',
     icon: React.createElement(UserOutlined),
-    label: 'Account' // Menampilkan menu User
+    label: 'Account'
   },
   {
     key: '2',
@@ -40,7 +39,7 @@ export const SideBar: React.FC = () => {
       >
         <div className="demo-logo-vertical" />
         <h1 style={{ color: 'white', textAlign: 'center', fontFamily: 'Poppins, sans-serif' }}>Dasboard</h1>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']} items={items} /> {/* Default pilih Product */}
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['2']} items={items} />
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />

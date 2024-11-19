@@ -1,7 +1,7 @@
 import { editProduct } from "@/api/products";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export function editProductMutation() {
+export function useEditProductMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: editProduct,

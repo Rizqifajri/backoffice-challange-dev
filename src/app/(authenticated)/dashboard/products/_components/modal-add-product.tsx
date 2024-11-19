@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, Modal, message } from 'antd';
+import { Button, Form, Modal, message } from 'antd';
 
 import { FormAddProduct } from './add-form-product';
-import { createProductMutation } from '../_hooks/use-create-product';
 
 const AddProductModal: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
-
-  const { mutate: addProduct } = createProductMutation();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -16,21 +13,10 @@ const AddProductModal: React.FC = () => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    form.resetFields(); // Reset form ketika modal ditutup
+    form.resetFields();
   };
 
-  const handleSubmit = (values: any) => {
-    addProduct(values, {
-      onSuccess: () => {
-        message.success('Product successfully added!');
-        form.resetFields(); // Reset form setelah submit berhasil
-        setIsModalOpen(false); // Tutup modal
-      },
-      onError: (error: any) => {
-        message.error(`Failed to add product: ${error.message || error}`);
-      },
-    });
-  };
+
 
   return (
     <>
