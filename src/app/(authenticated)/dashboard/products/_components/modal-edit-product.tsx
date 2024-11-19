@@ -19,7 +19,6 @@ export const EditProductModal: React.FC<EditProductModalProps> = ({
 }) => {
   const [form] = Form.useForm();
 
-  // Set data awal pada form
   React.useEffect(() => {
     if (product) {
       form.setFieldsValue(product);

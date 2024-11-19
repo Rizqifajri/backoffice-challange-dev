@@ -10,7 +10,6 @@ export type Product = {
   stock: number;
 };
 
-// Fetch all products
 export const getProducts = async (): Promise<Product[]> => {
   try {
     const response = await instance.get("/products/records", {
@@ -25,29 +24,26 @@ export const getProducts = async (): Promise<Product[]> => {
   }
 };
 
-// Fetch a product by ID
 export const getProductById = async (id: number): Promise<Product> => {
   try {
     const response = await instance.get(`/products/${id}`);
-    return response.data; // Ensure this matches the API structure
+    return response.data;
   } catch (error) {
     console.error("Error fetching product by ID:", error);
     throw error;
   }
 };
 
-// Fetch products by category
 export const getProductCategories = async (): Promise<string[]> => {
   try {
     const response = await instance.get("/categories/records");
-    return response.data.items; // Mengembalikan array string
+    return response.data.items;
   } catch (error) {
     console.error("Error fetching product categories:", error);
     throw error;
   }
 };
 
-// Create a new product
 export const createProduct = async (product: Product): Promise<Product> => {
   try {
     const response = await instance.post("/products/records", product);
@@ -76,7 +72,6 @@ export const editProduct = async (product: Product): Promise<Product> => {
   }
 };
 
-// Delete a product
 export const deleteProduct = async (id: number): Promise<void> => {
   try {
     await instance.delete(`/products/records/${id}`);

@@ -73,7 +73,7 @@ export const FormAddProduct: React.FC = () => {
           {categories && Array.isArray(categories) &&
             categories.map((category: any) => (
               <Option key={category.slug} value={category.id}>
-                {category.name} {/* Render name sebagai teks */}
+                {category.name}
               </Option>
             ))}
         </Select>

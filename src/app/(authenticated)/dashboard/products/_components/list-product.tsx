@@ -31,8 +31,8 @@ export const ListProduct = () => {
   };
 
   const handleEdit = (product: Product) => {
-    setSelectedProduct(product);  // Set the product to be edited
-    setOpenModal(true);  // Open the modal
+    setSelectedProduct(product);
+    setOpenModal(true);
   };
 
   const columns: ColumnsType<Product> = [
